@@ -16,7 +16,9 @@ func _on_npc_encounter_body_entered(body: Node2D) -> void:
 		
 func _on_steal_result(result):
 	if result == "perfect":
-		print("Item stolen!")
+		var item = %ItemDatabase.get_random_item()
+		print(item)
+		%InventoryUI.add_item(item)
 	elif result == "fail":
 		print("Steal failed!")
 	player.can_walk = true

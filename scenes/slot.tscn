@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bckagcb4od87h"]
+
+[ext_resource type="Script" uid="uid://chrgiphk463d8" path="res://scenes/slot.gd" id="1_4v6ba"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpyuo"]
+bg_color = Color(0.88476443, 0.6856105, 0.5562993, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 8
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jpyuo"]
+
+[node name="Slot" type="Panel" unique_id=168984025]
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_jpyuo")
+script = ExtResource("1_4v6ba")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1286129777]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = SubResource("CanvasTexture_jpyuo")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

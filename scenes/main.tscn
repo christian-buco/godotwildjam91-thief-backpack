@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dgock6eq7xchs" path="res://scenes/walk_scene.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://hkm7llrn25se" path="res://scenes/minigame_panel.gd" id="2_0wfyh"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sgp6g"]
-size = Vector2(64, 64)
+[ext_resource type="Script" uid="uid://cqk356rjxuyuu" path="res://scenes/inventory_ui.gd" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bckagcb4od87h" path="res://scenes/slot.tscn" id="2_sugp2"]
+[ext_resource type="Script" uid="uid://co2foy4dr0p21" path="res://scenes/item_database.gd" id="5_tbgi4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
 border_width_left = 1
@@ -36,6 +36,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="WalkScene" parent="VBoxContainer/TopArea" unique_id=1612515091 instance=ExtResource("1_o5qli")]
+position = Vector2(0, 91)
 minigame_path = NodePath("../../BottomArea/HBoxContainer/MinigamePanel")
 
 [node name="BottomArea" type="Panel" parent="VBoxContainer" unique_id=378324657]
@@ -52,8 +53,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="InventoryUI" type="Control" parent="VBoxContainer/BottomArea/HBoxContainer" unique_id=1358350722]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("2_jyhfs")
 metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI" unique_id=578929053]
@@ -73,41 +76,32 @@ theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 columns = 3
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=1754152635]
+[node name="Slot" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=168984025 instance=ExtResource("2_sugp2")]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_sgp6g")
 
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=955793378]
+[node name="Slot2" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=1645477149 instance=ExtResource("2_sugp2")]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_sgp6g")
 
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=855799358]
+[node name="Slot3" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=1339525044 instance=ExtResource("2_sugp2")]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_sgp6g")
 
-[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=570542533]
+[node name="Slot4" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=1984593105 instance=ExtResource("2_sugp2")]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_sgp6g")
 
-[node name="TextureRect5" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=2013684683]
+[node name="Slot5" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=705066217 instance=ExtResource("2_sugp2")]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_sgp6g")
 
-[node name="TextureRect6" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=234207686]
+[node name="Slot6" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=1202821418 instance=ExtResource("2_sugp2")]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_sgp6g")
 
-[node name="TextureRect7" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=631336698]
+[node name="Slot7" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=873158094 instance=ExtResource("2_sugp2")]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_sgp6g")
 
-[node name="TextureRect8" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=237801624]
+[node name="Slot8" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=1295285859 instance=ExtResource("2_sugp2")]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_sgp6g")
 
-[node name="TextureRect9" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=448392760]
+[node name="Slot9" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=1061743079 instance=ExtResource("2_sugp2")]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_sgp6g")
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/BottomArea/HBoxContainer" unique_id=761754104]
 layout_mode = 2
@@ -224,5 +218,9 @@ offset_bottom = -82.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Steal"
+
+[node name="ItemDatabase" type="Node" parent="VBoxContainer" unique_id=211579894]
+unique_name_in_owner = true
+script = ExtResource("5_tbgi4")
 
 [connection signal="pressed" from="VBoxContainer/BottomArea/HBoxContainer/MinigamePanel/StopButton" to="VBoxContainer/BottomArea/HBoxContainer/MinigamePanel" method="_on_stop_button_pressed"]
