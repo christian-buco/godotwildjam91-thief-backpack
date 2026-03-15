@@ -1,0 +1,228 @@
+[gd_scene format=3 uid="uid://bwo2s5gdaxqd5"]
+
+[ext_resource type="PackedScene" uid="uid://dgock6eq7xchs" path="res://scenes/walk_scene.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://hkm7llrn25se" path="res://scenes/minigame_panel.gd" id="2_0wfyh"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sgp6g"]
+size = Vector2(64, 64)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.24692157, 0.4131024, 0.8031181, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sugp2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jyhfs"]
+
+[node name="Main" type="Control" unique_id=334902671]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=353472432]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopArea" type="Panel" parent="VBoxContainer" unique_id=1417171098]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WalkScene" parent="VBoxContainer/TopArea" unique_id=1612515091 instance=ExtResource("1_o5qli")]
+minigame_path = NodePath("../../BottomArea/HBoxContainer/MinigamePanel")
+
+[node name="BottomArea" type="Panel" parent="VBoxContainer" unique_id=378324657]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BottomArea" unique_id=1572419168]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryUI" type="Control" parent="VBoxContainer/BottomArea/HBoxContainer" unique_id=1358350722]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI" unique_id=578929053]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -116.0
+offset_right = 116.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=1754152635]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_sgp6g")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=955793378]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_sgp6g")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=855799358]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_sgp6g")
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=570542533]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_sgp6g")
+
+[node name="TextureRect5" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=2013684683]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_sgp6g")
+
+[node name="TextureRect6" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=234207686]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_sgp6g")
+
+[node name="TextureRect7" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=631336698]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_sgp6g")
+
+[node name="TextureRect8" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=237801624]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_sgp6g")
+
+[node name="TextureRect9" type="TextureRect" parent="VBoxContainer/BottomArea/HBoxContainer/InventoryUI/GridContainer" unique_id=448392760]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_sgp6g")
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/BottomArea/HBoxContainer" unique_id=761754104]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_0wfyh")
+
+[node name="Panel" type="Panel" parent="VBoxContainer/BottomArea/HBoxContainer" unique_id=339532979]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sugp2")
+
+[node name="Label" type="Label" parent="VBoxContainer/BottomArea/HBoxContainer/Panel" unique_id=632384557]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+text = "ITEM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/BottomArea/HBoxContainer/Panel" unique_id=1879029961]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "DESCRIPTION"
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/BottomArea/HBoxContainer" unique_id=1689637540]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_0wfyh")
+
+[node name="MinigamePanel" type="Panel" parent="VBoxContainer/BottomArea/HBoxContainer" unique_id=1560659555]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jyhfs")
+script = ExtResource("2_0wfyh")
+
+[node name="Label" type="Label" parent="VBoxContainer/BottomArea/HBoxContainer/MinigamePanel" unique_id=1774069955]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+text = "STEAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bar" type="Control" parent="VBoxContainer/BottomArea/HBoxContainer/MinigamePanel" unique_id=457757539]
+anchors_preset = 0
+offset_top = 60.0
+offset_right = 40.0
+offset_bottom = 100.0
+
+[node name="BarBackground" type="ColorRect" parent="VBoxContainer/BottomArea/HBoxContainer/MinigamePanel/Bar" unique_id=2007113115]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 380.0
+offset_bottom = 20.0
+grow_horizontal = 2
+color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+
+[node name="YellowZone" type="ColorRect" parent="VBoxContainer/BottomArea/HBoxContainer/MinigamePanel/Bar" unique_id=586170892]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 80.0
+offset_bottom = 20.0
+grow_horizontal = 2
+color = Color(1, 1, 0, 1)
+
+[node name="GreenZone" type="ColorRect" parent="VBoxContainer/BottomArea/HBoxContainer/MinigamePanel/Bar" unique_id=2100775832]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+color = Color(0, 0.64369816, 3.85046e-07, 1)
+
+[node name="Needle" type="ColorRect" parent="VBoxContainer/BottomArea/HBoxContainer/MinigamePanel/Bar" unique_id=830933456]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -4.0
+offset_right = -15.0
+offset_bottom = 27.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="StopButton" type="Button" parent="VBoxContainer/BottomArea/HBoxContainer/MinigamePanel" unique_id=2043988374]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -122.0
+offset_right = 40.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Steal"
+
+[connection signal="pressed" from="VBoxContainer/BottomArea/HBoxContainer/MinigamePanel/StopButton" to="VBoxContainer/BottomArea/HBoxContainer/MinigamePanel" method="_on_stop_button_pressed"]

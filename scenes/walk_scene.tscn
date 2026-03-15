@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dgock6eq7xchs"]
+
+[ext_resource type="Script" uid="uid://ft4rb0k68cru" path="res://scenes/walk_scene.gd" id="1_5ykqx"]
+[ext_resource type="Script" uid="uid://ccdfmqdg4bvcs" path="res://scenes/player.gd" id="1_nt52b"]
+[ext_resource type="Texture2D" uid="uid://08t4kah4mhyy" path="res://assets/player.png" id="3_5fd8o"]
+[ext_resource type="Texture2D" uid="uid://020otxwvyrdi" path="res://assets/npc1.png" id="4_msdtr"]
+[ext_resource type="Texture2D" uid="uid://dwwn556m4d0xt" path="res://assets/npc2.png" id="5_wipv4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ykqx"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt52b"]
+size = Vector2(64, 64)
+
+[node name="WalkScene" type="Node2D" unique_id=1612515091]
+script = ExtResource("1_5ykqx")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=916160392]
+position = Vector2(32, 32)
+script = ExtResource("1_nt52b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=920322699]
+texture = ExtResource("3_5fd8o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1953628321]
+position = Vector2(-32, 0)
+shape = SubResource("RectangleShape2D_5ykqx")
+
+[node name="Exit" type="ColorRect" parent="." unique_id=369454360]
+offset_left = 1237.0
+offset_right = 1277.0
+offset_bottom = 40.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=603757320]
+position = Vector2(288, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=505683672]
+shape = SubResource("RectangleShape2D_nt52b")
+
+[node name="NPC" type="Sprite2D" parent="Area2D" unique_id=195635110]
+texture = ExtResource("4_msdtr")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=2143005403]
+position = Vector2(736, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1265106711]
+shape = SubResource("RectangleShape2D_nt52b")
+
+[node name="NPC" type="Sprite2D" parent="Area2D2" unique_id=891223156]
+texture = ExtResource("5_wipv4")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_npc_encounter_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_npc_encounter_body_entered"]
