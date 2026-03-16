@@ -8,6 +8,7 @@ var player
 var minigame
 var inventory
 var encounter_ui
+var game_controller
 
 func _ready():
 	$Sprite2D.texture = npc_sprite
@@ -15,6 +16,7 @@ func _ready():
 	minigame = get_tree().get_first_node_in_group("minigame")
 	inventory = get_tree().get_first_node_in_group("inventory")
 	encounter_ui = get_tree().get_first_node_in_group("encounter_ui")
+	game_controller = get_tree().get_first_node_in_group("game_controller")
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -35,8 +37,10 @@ func _on_steal_result(result):
 	if result == "perfect":
 		steal_attempts -= 1
 		
-		var item = get_tree().get_first_node_in_group("game_controller").get_random_item()
+		var item = game_controller.get_random_item()
 		inventory.add_item(item)
+		game_controller.gold += item["value"]
+		print(game_controller.gold)
 		encounter_ui.attempts_label.text = "Steals Left: " + str(steal_attempts)
 		
 	if steal_attempts <= 0:

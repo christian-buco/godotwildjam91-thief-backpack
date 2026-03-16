@@ -5,7 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://08t4kah4mhyy" path="res://assets/player.png" id="3_5fd8o"]
 [ext_resource type="Texture2D" uid="uid://020otxwvyrdi" path="res://assets/npc1.png" id="4_msdtr"]
 [ext_resource type="PackedScene" uid="uid://df2ccmhcwsbgj" path="res://scenes/npc.tscn" id="4_wipv4"]
+[ext_resource type="Texture2D" uid="uid://pojcyaw7kky3" path="res://assets/safehouse.png" id="5_5wxda"]
+[ext_resource type="Script" uid="uid://d182m531upfp5" path="res://scenes/exit.gd" id="5_vyh1o"]
 [ext_resource type="Texture2D" uid="uid://dwwn556m4d0xt" path="res://assets/npc2.png" id="5_wipv4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyh1o"]
+size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ykqx"]
 size = Vector2(64, 64)
@@ -13,8 +18,31 @@ size = Vector2(64, 64)
 [node name="WalkScene" type="Node2D" unique_id=1612515091]
 script = ExtResource("1_5ykqx")
 
+[node name="NPC" parent="." unique_id=718706130 instance=ExtResource("4_wipv4")]
+position = Vector2(288, 96)
+npc_sprite = ExtResource("4_msdtr")
+steal_attempts = 9
+
+[node name="NPC2" parent="." unique_id=404183258 instance=ExtResource("4_wipv4")]
+position = Vector2(416, 96)
+npc_sprite = ExtResource("5_wipv4")
+steal_attempts = 2
+
+[node name="Exit" type="Area2D" parent="." unique_id=571936481]
+position = Vector2(1224, 96)
+script = ExtResource("5_vyh1o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=629707257]
+position = Vector2(-19, 0)
+shape = SubResource("RectangleShape2D_vyh1o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Exit" unique_id=1621443048]
+scale = Vector2(2, 2)
+texture = ExtResource("5_5wxda")
+offset = Vector2(0, -16)
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=916160392]
-position = Vector2(32, 32)
+position = Vector2(32, 96)
 script = ExtResource("1_nt52b")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=920322699]
@@ -24,17 +52,4 @@ texture = ExtResource("3_5fd8o")
 position = Vector2(-32, 0)
 shape = SubResource("RectangleShape2D_5ykqx")
 
-[node name="Exit" type="ColorRect" parent="." unique_id=369454360]
-offset_left = 1237.0
-offset_right = 1277.0
-offset_bottom = 40.0
-
-[node name="NPC" parent="." unique_id=718706130 instance=ExtResource("4_wipv4")]
-position = Vector2(288, 32)
-npc_sprite = ExtResource("4_msdtr")
-steal_attempts = 9
-
-[node name="NPC2" parent="." unique_id=404183258 instance=ExtResource("4_wipv4")]
-position = Vector2(416, 32)
-npc_sprite = ExtResource("5_wipv4")
-steal_attempts = 2
+[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]

@@ -1,6 +1,7 @@
 extends Node
 
 var items = []
+var gold: int = 0
 
 func _ready():
 	items = [
@@ -9,3 +10,9 @@ func _ready():
 	
 func get_random_item():
 	return items.pick_random()
+
+func check_win(goal):
+	if gold >= goal:
+		print("WIN")
+	else:
+		print("LOSE")
