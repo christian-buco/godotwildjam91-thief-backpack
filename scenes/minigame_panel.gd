@@ -51,6 +51,12 @@ func _on_stop_button_pressed() -> void:
 	if stealing:
 		finish_steal()
 
+func enable_stop_button():
+	$StopButton.disabled = false
+
+func disable_stop_button():
+	$StopButton.disabled = true
+
 func finish_steal():
 	stealing = false
 	
@@ -65,3 +71,4 @@ func finish_steal():
 		print("Failed steal!")
 		if result_callback:
 			result_callback.call("fail")
+	

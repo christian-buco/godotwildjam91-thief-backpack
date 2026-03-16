@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://df2ccmhcwsbgj"]
+
+[ext_resource type="Script" uid="uid://css13qjluxr33" path="res://scenes/npc.gd" id="1_abqhh"]
+[ext_resource type="Texture2D" uid="uid://020otxwvyrdi" path="res://assets/npc1.png" id="1_nh2m4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt52b"]
+size = Vector2(64, 64)
+
+[node name="NPC" type="Area2D" unique_id=718706130]
+script = ExtResource("1_abqhh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=622653468]
+shape = SubResource("RectangleShape2D_nt52b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1942295693]
+texture = ExtResource("1_nh2m4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -24,6 +24,13 @@ window/size/viewport_height=720
 
 enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
 
+[global_group]
+
+inventory=""
+minigame=""
+game_controller=""
+encounter_ui=""
+
 [gui]
 
 theme/custom="res://resources/themes/expedition.tres"

@@ -4,12 +4,10 @@
 [ext_resource type="Script" uid="uid://ccdfmqdg4bvcs" path="res://scenes/player.gd" id="1_nt52b"]
 [ext_resource type="Texture2D" uid="uid://08t4kah4mhyy" path="res://assets/player.png" id="3_5fd8o"]
 [ext_resource type="Texture2D" uid="uid://020otxwvyrdi" path="res://assets/npc1.png" id="4_msdtr"]
+[ext_resource type="PackedScene" uid="uid://df2ccmhcwsbgj" path="res://scenes/npc.tscn" id="4_wipv4"]
 [ext_resource type="Texture2D" uid="uid://dwwn556m4d0xt" path="res://assets/npc2.png" id="5_wipv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ykqx"]
-size = Vector2(64, 64)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt52b"]
 size = Vector2(64, 64)
 
 [node name="WalkScene" type="Node2D" unique_id=1612515091]
@@ -31,23 +29,12 @@ offset_left = 1237.0
 offset_right = 1277.0
 offset_bottom = 40.0
 
-[node name="Area2D" type="Area2D" parent="." unique_id=603757320]
+[node name="NPC" parent="." unique_id=718706130 instance=ExtResource("4_wipv4")]
 position = Vector2(288, 32)
+npc_sprite = ExtResource("4_msdtr")
+steal_attempts = 9
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=505683672]
-shape = SubResource("RectangleShape2D_nt52b")
-
-[node name="NPC" type="Sprite2D" parent="Area2D" unique_id=195635110]
-texture = ExtResource("4_msdtr")
-
-[node name="Area2D2" type="Area2D" parent="." unique_id=2143005403]
-position = Vector2(736, 32)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1265106711]
-shape = SubResource("RectangleShape2D_nt52b")
-
-[node name="NPC" type="Sprite2D" parent="Area2D2" unique_id=891223156]
-texture = ExtResource("5_wipv4")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_npc_encounter_body_entered"]
-[connection signal="body_entered" from="Area2D2" to="." method="_on_npc_encounter_body_entered"]
+[node name="NPC2" parent="." unique_id=404183258 instance=ExtResource("4_wipv4")]
+position = Vector2(416, 32)
+npc_sprite = ExtResource("5_wipv4")
+steal_attempts = 2

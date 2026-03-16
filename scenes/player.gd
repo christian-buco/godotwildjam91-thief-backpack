@@ -11,3 +11,9 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.x = speed
 	move_and_slide()
+
+func stop_walking():
+	can_walk = false
+
+func resume_walking():
+	can_walk = true
