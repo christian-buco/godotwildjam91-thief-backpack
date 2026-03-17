@@ -20,13 +20,14 @@ border_color = Color(0.24692157, 0.4131024, 0.8031181, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jyhfs"]
 
-[node name="Main" type="Control" unique_id=334902671]
+[node name="Main" type="Control" unique_id=334902671 groups=["game_controller"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("5_tbgi4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=353472432]
 layout_mode = 1
@@ -300,10 +301,6 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "LEAVE"
-
-[node name="ItemDatabase" type="Node" parent="VBoxContainer" unique_id=211579894 groups=["game_controller"]]
-unique_name_in_owner = true
-script = ExtResource("5_tbgi4")
 
 [node name="Win_Lose_manager" type="Node" parent="VBoxContainer" unique_id=1713973763 groups=["win_lose_manager"]]
 script = ExtResource("8_choun")

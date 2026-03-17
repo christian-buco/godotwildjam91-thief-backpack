@@ -44,10 +44,7 @@ func attempt_steal():
 
 func _on_steal_result(result):
 	if result == "fail":
-		steal_attempts -= 1
 		game_controller.add_suspicion(25)
-		encounter_ui.attempts_label.text = "Steals Left: " + str(steal_attempts)
-		update_label()
 		
 	if result == "perfect":
 		steal_attempts -= 1

@@ -5,6 +5,7 @@ var gold: int = 0
 @export var gold_goal: int = 20
 
 @onready var win_lose_manager = get_tree().get_first_node_in_group("win_lose_manager")
+@onready var win_lose_level = get_tree().get_first_node_in_group("win_lose_level")
 @onready var suspicion_bar = get_tree().get_first_node_in_group("suspicion_bar")
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var gold_label = get_tree().get_first_node_in_group("gold_label")
@@ -47,10 +48,11 @@ func check_win():
 	is_game_over = true
 	if gold >= gold_goal:
 		print("WIN")
-		win_lose_manager.game_won()
+		#win_lose_manager.game_won()
+		win_lose_level.level_won.emit()
 	else:
 		print("LOSE")
-		win_lose_manager.game_lost()
+		win_lose_level.level_lost.emit()
 
 func update_gold_ui():
 	gold_label.text = "Total Gold: " + str(gold) + " / " + str(gold_goal)
@@ -63,4 +65,4 @@ func add_suspicion(amount):
 	if suspicion >= suspicion_max:
 		is_game_over = true
 		print("LOSE CAUSE OF BAR")
-		win_lose_manager.game_lost()
+		win_lose_level.level_lost.emit()

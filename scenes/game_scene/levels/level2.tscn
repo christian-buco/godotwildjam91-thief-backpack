@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c3d2287bl6xik"]
+
+[ext_resource type="PackedScene" uid="uid://bwo2s5gdaxqd5" path="res://scenes/main.tscn" id="1_c50jq"]
+[ext_resource type="Script" uid="uid://qi4qdfy4cte8" path="res://scenes/game_scene/levels/level.gd" id="1_kr6wy"]
+
+[node name="level2" type="Node" unique_id=1036924017 groups=["win_lose_level"]]
+script = ExtResource("1_kr6wy")
+next_level_path = "uid://b8j0l60amd82c"
+
+[node name="Main" parent="." unique_id=334902671 instance=ExtResource("1_c50jq")]
+gold_goal = 35
+
+[node name="NPC" parent="Main/VBoxContainer/TopArea/WalkScene" parent_id_path=PackedInt32Array(334902671, 1612515091) index="0" unique_id=718706130]
+steal_attempts = 1
+
+[node name="NPC2" parent="Main/VBoxContainer/TopArea/WalkScene" parent_id_path=PackedInt32Array(334902671, 1612515091) index="1" unique_id=404183258]
+visible = false
+monitoring = false
+monitorable = false
+
+[node name="NPC5" parent="Main/VBoxContainer/TopArea/WalkScene" parent_id_path=PackedInt32Array(334902671, 1612515091) index="4" unique_id=1413455480]
+steal_attempts = 3
+
+[editable path="Main"]
+[editable path="Main/VBoxContainer/TopArea/WalkScene"]

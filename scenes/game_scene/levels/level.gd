@@ -13,12 +13,3 @@ func _on_lose_button_pressed() -> void:
 
 func _on_win_button_pressed() -> void:
 	level_won.emit(next_level_path)
-
-func open_tutorials() -> void:
-	%TutorialManager.open_tutorials()
-
-func _ready() -> void:
-	open_tutorials()
-
-func _on_tutorial_button_pressed() -> void:
-	open_tutorials()

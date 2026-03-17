@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://htgerd7t5e1p"]
+
+[ext_resource type="Script" uid="uid://qi4qdfy4cte8" path="res://scenes/game_scene/levels/level.gd" id="1_3wtct"]
+[ext_resource type="PackedScene" uid="uid://bwo2s5gdaxqd5" path="res://scenes/main.tscn" id="1_5bkf4"]
+
+[node name="level1" type="Node" unique_id=1480862712 groups=["win_lose_level"]]
+script = ExtResource("1_3wtct")
+next_level_path = "uid://c3d2287bl6xik"
+
+[node name="Main" parent="." unique_id=334902671 instance=ExtResource("1_5bkf4")]

@@ -35,6 +35,7 @@ suspicion_bar=""
 win_lose_manager=""
 player=""
 gold_label=""
+win_lose_level=""
 
 [gui]
 
