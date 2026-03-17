@@ -43,6 +43,12 @@ func attempt_steal():
 	minigame.start_steal(_on_steal_result)
 
 func _on_steal_result(result):
+	if result == "fail":
+		steal_attempts -= 1
+		game_controller.add_suspicion(25)
+		encounter_ui.attempts_label.text = "Steals Left: " + str(steal_attempts)
+		update_label()
+		
 	if result == "perfect":
 		steal_attempts -= 1
 		
@@ -52,6 +58,7 @@ func _on_steal_result(result):
 		print(game_controller.gold)
 		encounter_ui.attempts_label.text = "Steals Left: " + str(steal_attempts)
 		update_label()
+		game_controller.update_gold_ui()
 		minigame.apply_inventory_modifiers(inventory.items)
 	if steal_attempts <= 0:
 		minigame.disable_stop_button()

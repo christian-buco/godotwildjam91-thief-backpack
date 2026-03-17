@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://bptirjr4tarm2" path="res://scenes/item_description.gd" id="4_o6xl0"]
 [ext_resource type="Script" uid="uid://co2foy4dr0p21" path="res://scenes/item_database.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://vtwypdg7dbe8" path="res://scenes/encounter_panel.gd" id="5_tefeu"]
+[ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="8_choun"]
+[ext_resource type="PackedScene" uid="uid://ba11po12cvait" path="res://scenes/windows/game_won_window.tscn" id="9_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://bx7s80d8smic4" path="res://scenes/windows/level_lost_window.tscn" id="10_eb6dy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
 border_width_left = 1
@@ -40,6 +43,28 @@ size_flags_vertical = 3
 [node name="WalkScene" parent="VBoxContainer/TopArea" unique_id=1612515091 instance=ExtResource("1_o5qli")]
 position = Vector2(0, 91)
 minigame_path = NodePath("../../BottomArea/HBoxContainer/MinigamePanel")
+
+[node name="GoldLabel" type="Label" parent="VBoxContainer/TopArea" unique_id=1959409988 groups=["gold_label"]]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 88.0
+offset_bottom = 53.0
+text = "Total Gold: "
+
+[node name="SuspicionLabel" type="Label" parent="VBoxContainer/TopArea" unique_id=1097906705]
+layout_mode = 1
+offset_right = 74.0
+offset_bottom = 23.0
+text = "Suspicion"
+
+[node name="SuspicionBar" type="ProgressBar" parent="VBoxContainer/TopArea" unique_id=1967853307 groups=["suspicion_bar"]]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 84.0
+offset_right = -796.0
+offset_bottom = 27.0
+grow_horizontal = 2
 
 [node name="BottomArea" type="Panel" parent="VBoxContainer" unique_id=378324657]
 layout_mode = 2
@@ -182,7 +207,7 @@ offset_left = -20.0
 offset_right = 80.0
 offset_bottom = 20.0
 grow_horizontal = 2
-color = Color(1, 1, 0, 1)
+color = Color(0.39215687, 0.39215687, 0.39215687, 1)
 
 [node name="GreenZone" type="ColorRect" parent="VBoxContainer/BottomArea/HBoxContainer/MinigamePanel/Bar" unique_id=2100775832]
 layout_mode = 1
@@ -225,16 +250,13 @@ text = "Steal"
 
 [node name="EncounterPanel" type="Panel" parent="VBoxContainer/BottomArea" unique_id=1114435659 groups=["encounter_ui"]]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 250.0
-offset_top = -66.0
-offset_right = 612.0
-offset_bottom = 220.0
-grow_horizontal = 2
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -422.0
+offset_top = 384.0
+grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("5_tefeu")
 
@@ -282,6 +304,12 @@ text = "LEAVE"
 [node name="ItemDatabase" type="Node" parent="VBoxContainer" unique_id=211579894 groups=["game_controller"]]
 unique_name_in_owner = true
 script = ExtResource("5_tbgi4")
+
+[node name="Win_Lose_manager" type="Node" parent="VBoxContainer" unique_id=1713973763 groups=["win_lose_manager"]]
+script = ExtResource("8_choun")
+main_menu_scene_path = "uid://conoq2gmylqvr"
+game_won_scene = ExtResource("9_ya4ey")
+game_lost_scene = ExtResource("10_eb6dy")
 
 [connection signal="pressed" from="VBoxContainer/BottomArea/HBoxContainer/MinigamePanel/StopButton" to="VBoxContainer/BottomArea/HBoxContainer/MinigamePanel" method="_on_stop_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/BottomArea/EncounterPanel/StealButton" to="VBoxContainer/BottomArea/EncounterPanel" method="_on_steal_button_pressed"]

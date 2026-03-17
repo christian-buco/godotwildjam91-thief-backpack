@@ -2,6 +2,17 @@ extends Node
 
 var items = []
 var gold: int = 0
+@export var gold_goal: int = 20
+
+@onready var win_lose_manager = get_tree().get_first_node_in_group("win_lose_manager")
+@onready var suspicion_bar = get_tree().get_first_node_in_group("suspicion_bar")
+@onready var player = get_tree().get_first_node_in_group("player")
+@onready var gold_label = get_tree().get_first_node_in_group("gold_label")
+
+var suspicion := 0
+var suspicion_max := 100
+
+var is_game_over := false
 
 func _ready():
 	items = [
@@ -27,11 +38,29 @@ func _ready():
 		"A heavy gold bar weighing you down.\n-50% success zone")
 	]
 	
+	update_gold_ui()
+	
 func get_random_item():
 	return items.pick_random()
 
-func check_win(goal):
-	if gold >= goal:
+func check_win():
+	is_game_over = true
+	if gold >= gold_goal:
 		print("WIN")
+		win_lose_manager.game_won()
 	else:
 		print("LOSE")
+		win_lose_manager.game_lost()
+
+func update_gold_ui():
+	gold_label.text = "Total Gold: " + str(gold) + " / " + str(gold_goal)
+
+func add_suspicion(amount):
+	suspicion += amount
+	suspicion = clamp(suspicion, 0, suspicion_max)
+	
+	suspicion_bar.value = suspicion
+	if suspicion >= suspicion_max:
+		is_game_over = true
+		print("LOSE CAUSE OF BAR")
+		win_lose_manager.game_lost()

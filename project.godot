@@ -31,6 +31,10 @@ minigame=""
 game_controller=""
 encounter_ui=""
 description_panel=""
+suspicion_bar=""
+win_lose_manager=""
+player=""
+gold_label=""
 
 [gui]
 

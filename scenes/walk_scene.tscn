@@ -56,7 +56,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("5_5wxda")
 offset = Vector2(0, -16)
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=916160392]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=916160392 groups=["player"]]
 position = Vector2(32, 96)
 script = ExtResource("1_nt52b")
 
