@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://hkm7llrn25se" path="res://scenes/minigame_panel.gd" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://cqk356rjxuyuu" path="res://scenes/inventory_ui.gd" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bckagcb4od87h" path="res://scenes/slot.tscn" id="2_sugp2"]
+[ext_resource type="Script" uid="uid://bptirjr4tarm2" path="res://scenes/item_description.gd" id="4_o6xl0"]
 [ext_resource type="Script" uid="uid://co2foy4dr0p21" path="res://scenes/item_database.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://vtwypdg7dbe8" path="res://scenes/encounter_panel.gd" id="5_tefeu"]
 
@@ -108,22 +109,23 @@ layout_mode = 2
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxFlat_0wfyh")
 
-[node name="Panel" type="Panel" parent="VBoxContainer/BottomArea/HBoxContainer" unique_id=339532979]
+[node name="ItemDescription" type="Panel" parent="VBoxContainer/BottomArea/HBoxContainer" unique_id=339532979 groups=["description_panel"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_sugp2")
+script = ExtResource("4_o6xl0")
 
-[node name="Label" type="Label" parent="VBoxContainer/BottomArea/HBoxContainer/Panel" unique_id=632384557]
+[node name="Label" type="Label" parent="VBoxContainer/BottomArea/HBoxContainer/ItemDescription" unique_id=632384557]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 48.0
 grow_horizontal = 2
-text = "ITEM"
+text = "Description"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/BottomArea/HBoxContainer/Panel" unique_id=1879029961]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/BottomArea/HBoxContainer/ItemDescription" unique_id=1879029961]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -228,10 +230,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -330.0
-offset_top = -314.0
-offset_right = 330.0
-offset_bottom = -28.0
+offset_left = 250.0
+offset_top = -66.0
+offset_right = 612.0
+offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_tefeu")

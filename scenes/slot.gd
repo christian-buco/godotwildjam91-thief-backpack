@@ -16,4 +16,5 @@ func set_item(new_item):
 
 func _on_mouse_entered() -> void:
 	if item:
-		print(item.name)
+		var desc = get_tree().get_first_node_in_group("description_panel")
+		desc.show_item(item)

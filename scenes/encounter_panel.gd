@@ -3,18 +3,26 @@ extends Panel
 var current_npc = null
 @onready var attempts_label = $AttemptsLabel
 @onready var minigame_panel = $"../HBoxContainer/MinigamePanel"
+var inventory
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.visible = false
+	inventory = get_tree().get_first_node_in_group("inventory")
 
 func show_encounter_ui():
 	self.visible = true
 
 func start_encounter(npc):
-	current_npc = npc
-	self.visible = true
-	attempts_label.text = "Steals Left: " + str(npc.steal_attempts)
+	if inventory.is_full():
+		self.visible = true
+		attempts_label.text = "INVENTORY IS FULL!"
+		current_npc = npc
+		$StealButton.disabled = true
+	else:
+		current_npc = npc
+		self.visible = true
+		attempts_label.text = "Steals Left: " + str(npc.steal_attempts)
 	
 func _on_steal_button_pressed() -> void:
 	if current_npc:

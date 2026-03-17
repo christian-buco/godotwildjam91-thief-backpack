@@ -15,4 +15,20 @@ shape = SubResource("RectangleShape2D_nt52b")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1942295693]
 texture = ExtResource("1_nh2m4")
 
+[node name="AttemptsLabel" type="Label" parent="." unique_id=1313482068]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -60.0
+offset_right = 20.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

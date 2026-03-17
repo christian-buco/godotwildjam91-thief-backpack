@@ -21,11 +21,26 @@ script = ExtResource("1_5ykqx")
 [node name="NPC" parent="." unique_id=718706130 instance=ExtResource("4_wipv4")]
 position = Vector2(288, 96)
 npc_sprite = ExtResource("4_msdtr")
-steal_attempts = 9
+steal_attempts = 2
 
 [node name="NPC2" parent="." unique_id=404183258 instance=ExtResource("4_wipv4")]
 position = Vector2(416, 96)
 npc_sprite = ExtResource("5_wipv4")
+steal_attempts = 2
+
+[node name="NPC3" parent="." unique_id=1237478780 instance=ExtResource("4_wipv4")]
+position = Vector2(720, 96)
+npc_sprite = ExtResource("5_wipv4")
+steal_attempts = 1
+
+[node name="NPC4" parent="." unique_id=56923167 instance=ExtResource("4_wipv4")]
+position = Vector2(920, 96)
+npc_sprite = ExtResource("4_msdtr")
+steal_attempts = 2
+
+[node name="NPC5" parent="." unique_id=1413455480 instance=ExtResource("4_wipv4")]
+position = Vector2(1040, 96)
+npc_sprite = ExtResource("4_msdtr")
 steal_attempts = 2
 
 [node name="Exit" type="Area2D" parent="." unique_id=571936481]
