@@ -50,7 +50,7 @@ layout_mode = 0
 offset_top = 30.0
 offset_right = 88.0
 offset_bottom = 53.0
-text = "Total Gold: "
+text = "Goal: "
 
 [node name="SuspicionLabel" type="Label" parent="VBoxContainer/TopArea" unique_id=1097906705]
 layout_mode = 1

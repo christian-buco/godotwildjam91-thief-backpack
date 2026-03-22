@@ -55,7 +55,7 @@ func check_win():
 		win_lose_level.level_lost.emit()
 
 func update_gold_ui():
-	gold_label.text = "Total Gold: " + str(gold) + " / " + str(gold_goal)
+	gold_label.text = "Goal: " + str(gold) + " / " + str(gold_goal)
 
 func add_suspicion(amount):
 	suspicion += amount

@@ -3,6 +3,8 @@ extends Node
 @onready var sfx_player = $SFXPlayer
 @onready var music_player = $MusicPlayer
 
+var is_transitioning := false
+
 # SFX
 var click_sfx = preload("res://assets/sfx/click.wav")
 var success_sfx = preload("res://assets/sfx/success.wav")
@@ -36,9 +38,14 @@ func play_music(music):
 	music_player.play()
 
 func play_random_music():
+	if is_transitioning:
+		return
+	
 	if music_tracks.is_empty():
 		return
 
+	is_transitioning = true
+	
 	var next_track = music_tracks.pick_random()
 
 	# avoid same track twice in a row
@@ -46,5 +53,20 @@ func play_random_music():
 		next_track = music_tracks.pick_random()
 
 	current_track = next_track
-	music_player.stream = current_track
-	music_player.play()
+	
+	var tween = create_tween()
+	
+	tween.tween_property(music_player, "volume_db", -30, 0.5)
+	tween.tween_callback(func():
+		music_player.stream = current_track
+		music_player.play()
+	)
+	
+	tween.tween_property(music_player, "volume_db", 0, 0.5)
+	tween.tween_callback(func():
+		is_transitioning = false
+	)
+
+
+func _on_music_player_finished() -> void:
+	play_random_music()
