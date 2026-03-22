@@ -12,9 +12,30 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
 bbcode_enabled = true
-text = "[font_size=48]Tools[/font_size]
+text = "[font_size=48]Audio[/font_size]
+
+[font_size=32]Music[/font_size]
+
+[font_size=24]Background Track 1[/font_size]
+Author: [url=https://shononoki.itch.io/]Shononoki[/url]  
+Source: [url=https://shononoki.itch.io/free-rpg-music-pack-2]itch: RPG MUSIC PACK 2[/url]  
+
+[font_size=32]Sound Effects[/font_size]
+
+[font_size=24]Click Sound[/font_size]
+Author: [url=https://freesound.org/people/el_boss/]el_boss[/url]  
+Source: [url=https://freesound.org/people/el_boss/sounds/677861/]freesound: UI Button Click[/url]  
+
+[font_size=24]Success Sound[/font_size]
+Author: [url=https://freesound.org/people/MLaudio/]MLaudio[/url]  
+Source: [url=https://freesound.org/people/MLaudio/sounds/615099/]freesound: magic_game_win_success.wav[/url]  
+
+[font_size=24]Fail Sound[/font_size]
+Author: [url=https://freesound.org/people/Jacco18/]Jacco18[/url]  
+Source: [url=https://freesound.org/people/Jacco18/sounds/419023/]freesound: acess denied buzz[/url]  
+
+[font_size=48]Tools[/font_size]
 [font_size=24]Godot Minimal Game Template[/font_size]
-[img=80]res:///assets/plugin_logo/logo.png[/img]  
 Author: [url=https://github.com/Maaack/Godot-Minimal-Game-Template/graphs/contributors]Marek Belski and contributors[/url]  
 Source: [url=https://github.com/Maaack/Godot-Minimal-Game-Template]github: Godot-Minimal-Game-Template[/url]  
 License: [url=LICENSE.txt]MIT License[/url]  
