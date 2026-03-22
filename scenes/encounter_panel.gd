@@ -25,6 +25,7 @@ func start_encounter(npc):
 		attempts_label.text = "Steals Left: " + str(npc.steal_attempts)
 	
 func _on_steal_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	if current_npc:
 		self.visible = false
 		current_npc.attempt_steal()
@@ -32,6 +33,7 @@ func _on_steal_button_pressed() -> void:
 
 
 func _on_leave_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	if current_npc:
 		current_npc.end_encounter()
 		self.visible = false

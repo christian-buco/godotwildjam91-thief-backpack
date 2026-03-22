@@ -65,6 +65,7 @@ var _connected_nodes : Array
 
 func _on_setting_changed(value) -> void:
 	if Engine.is_editor_hint(): return
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	PlayerConfig.set_config(section, key, value)
 	setting_changed.emit(value)
 

@@ -101,6 +101,7 @@ func _hide_new_game_if_unset() -> void:
 		new_game_button.hide()
 
 func _hide_options_if_unset() -> void:
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	if options_packed_scene == null:
 		options_button.hide()
 
@@ -115,16 +116,21 @@ func _ready() -> void:
 	_hide_new_game_if_unset()
 
 func _on_new_game_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	new_game()
 
 func _on_options_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	_open_sub_menu(options_packed_scene)
 
 func _on_credits_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	_open_sub_menu(credits_packed_scene)
 
 func _on_exit_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	try_exit_game()
 
 func _on_exit_confirmation_confirmed():
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	exit_game()

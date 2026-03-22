@@ -97,23 +97,35 @@ func _ready() -> void:
 	exit_confirmation.confirmed.connect(_on_exit_confirmation_confirmed)
 
 func _on_restart_button_pressed() -> void:
-	_show_window(restart_confirmation)
+	AudioManager.play_sfx(AudioManager.click_sfx)
+	get_tree().get_first_node_in_group("level_manager")._reload_level()
+	close()
+	#_show_window(restart_confirmation)
 
 func _on_options_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	_load_and_show_menu(options_menu_scene)
 
 func _on_main_menu_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	_show_window(main_menu_confirmation)
 
 func _on_exit_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	_show_window(exit_confirmation)
 
+
 func _on_restart_confirmation_confirmed() -> void:
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	get_tree().reload_current_scene()
+	
+	get_tree().get_first_node_in_group("level_manager")._reload_level()
 	close()
 
 func _on_main_menu_confirmation_confirmed():
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	_load_scene(get_main_menu_scene_path())
 
 func _on_exit_confirmation_confirmed():
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	get_tree().quit()

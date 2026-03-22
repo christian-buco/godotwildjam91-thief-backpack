@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://odx7aanjdebn"]
+
+[ext_resource type="Script" uid="uid://crh02ciowld1" path="res://scenes/audio_manager.gd" id="1_hux41"]
+
+[node name="AudioManager" type="Node" unique_id=818224506 groups=["audio_manager"]]
+script = ExtResource("1_hux41")
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2083660250]
+bus = &"SFX"
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1136589612]
+bus = &"Music"

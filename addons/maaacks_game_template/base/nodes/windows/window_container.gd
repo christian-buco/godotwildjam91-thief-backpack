@@ -69,6 +69,7 @@ func _unhandled_input(event : InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func _on_close_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	close()
 
 func show() -> void:

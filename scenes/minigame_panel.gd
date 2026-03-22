@@ -74,6 +74,7 @@ func _process(delta: float) -> void:
 
 
 func _on_stop_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	if stealing:
 		finish_steal()
 
@@ -92,10 +93,12 @@ func finish_steal():
 	
 	if needle.position.x >= green_start and needle.position.x <= green_end:
 		print("Perfect steal!")
+		AudioManager.play_sfx(AudioManager.success_sfx)
 		if result_callback:
 			result_callback.call("perfect")
 	else:
 		print("Failed steal!")
+		AudioManager.play_sfx(AudioManager.fail_sfx)
 		if result_callback:
 			result_callback.call("fail")
 	

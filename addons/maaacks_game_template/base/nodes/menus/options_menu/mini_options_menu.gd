@@ -40,6 +40,7 @@ func _ready() -> void:
 	_sync_with_config()
 
 func _on_mute_control_setting_changed(value : bool) -> void:
+	AudioManager.play_sfx(AudioManager.click_sfx)
 	AppSettings.set_mute(value)
 
 func _on_fullscreen_control_setting_changed(value : bool) -> void:
